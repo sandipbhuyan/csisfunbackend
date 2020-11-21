@@ -5,7 +5,6 @@
 @endsection
 
 @section('content')
-
     <div class="container">
         <div class="row">
             @include('partials.sidebar')
@@ -15,7 +14,7 @@
                         <a href="{{ route($route['create']) }}" class="btn btn-success pull-right">
                             <i class="fa fa-plus"></i> {{$indexvar['newitem']}}
                         </a>
-                        <div >
+                        <div>
                             <b>Total of {{$indexvar['title']}}:</b>
                             <span class="badge label-success">{{${$multipostvar}->total()}}</span>
                             <br/><br/>
@@ -26,10 +25,10 @@
                 </div>
                 <hr>
 
-                <div class="panel-body" >
+                <div class="panel-body">
                     <h5>
                         <div class="table-responsive">
-                            <table class="table">
+                            <table class="table table-striped">
                                 <thead>
                                 <tr>
                                     @foreach($fields as $field => $fv)
@@ -43,12 +42,8 @@
                                     <tr>
                                         @foreach($fields as $field => $fv)
                                             {{-- STRCMP RETURNS 0 WHEN EQUAL --}}
-
                                             @if(!strcmp($field,"image"))
-
                                                 <td><img src="{{url($notice->$field)}}" width="100" height="50"></td>
-
-
                                             @elseif(strpos($field,"file"))
                                                 <td><a href="{{url($notice->$field)}}">DOWNLOAD FILE</a></td>
 
@@ -61,11 +56,11 @@
                                                 <td>{{ date('d M Y, H:i:s', strtotime($notice->$field) )}}</td>
 
                                             @elseif(!strcmp($field,"slug"))
-                                                <td><a target="_blank" href="{{url($indexvar['urltomain'].$notice->$field)}}">GO TO BRANCH</a></td>
-
+                                                <td><a target="_blank"
+                                                       href="{{url($indexvar['urltomain'].$notice->$field)}}">GO TO
+                                                        BRANCH</a></td>
                                             @else
                                                 <td>{{ substr($notice->$field,0,20) }}{{ strlen($notice->$field) > 20 ? "..." : ""}}</td>
-
                                             @endif
                                         @endforeach
                                         <td class="actions">
@@ -96,10 +91,8 @@
                                     </tr>
                                 @endforeach
                                 </tbody>
-
                             </table>
                         </div>
-
                         <div class="text-center">
                             {!! ${$multipostvar}->render() !!}
                         </div>

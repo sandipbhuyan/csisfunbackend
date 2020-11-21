@@ -9,7 +9,7 @@
 
             <div class="col-lg-9">
 
-                <div class="content" >
+                <div class="content">
                     <!-- Content goes here -->
                     <fieldset>
                         {!! Form::model(${$singlepostvar}, ['route' => [$route['update'], ${$singlepostvar}->id], 'class' => 'form-horizontal', 'method' => 'PUT', 'data-parsley-validate' => '', 'autocomplete' => 'off', 'files'=> true]) !!}
@@ -30,9 +30,9 @@
                                         <div class="{{$fv['field_length']}}">
 
                                             <div class="input-group border-input">
-		                                                <span class="input-group-addon">
-		                                                    <i class="{{$fv['field_icon']}}"></i>
-		                                                </span>
+                                                <div class="input-group-prepend">
+                                                    <div class="input-group-text"><i class="{{$fv['field_icon']}}"></i></div>
+                                                </div>
                                                 @if(!strcmp($fv['type'], "text"))
                                                     {!! Form::text($fv['name'], $fv['default'], $fv['extras']) !!}
                                                 @elseif(!strcmp($fv['type'], "textarea"))
@@ -44,13 +44,11 @@
                                                 @elseif(!strcmp($fv['type'], "radio"))
                                                     {!! Form::radio($fv['name'], $fv['default'], $fv['checked'],$fv['extras']) !!}
                                                 @elseif(!strcmp($fv['type'], "file"))
-
-                                                    <img src="{{url(${$singlepostvar}->$field)}}" width="250" height="150"><br>
+                                                    <img src="{{url(${$singlepostvar}->$field)}}" width="250"
+                                                         height="150"><br>
                                                     {!! Form::file($fv['name'],$fv['extras']) !!}
                                                 @else
-
                                                 @endif
-
                                                 @if ($errors->has($fv['name']))
                                                     <span class="help-block">
 				                                                <strong>{{ $errors->first($fv['name']) }}</strong>
@@ -60,8 +58,6 @@
                                         </div>
                                     </div>
                                 @endforeach
-
-
                             </div>
                         </div>
 
@@ -71,13 +67,14 @@
                                 <div class="panel-title"><h3><b>STATUS</b></h3></div>
                             </div>
                             <div class="content-box-large box-with-header">
-
                                 <div class="well">
-                                    <p><b>Created at :</b>{{ date('M j, Y H:ia', strtotime(${$singlepostvar}->created_at)) }}</p><br/>
-                                    <p><b>Updated at :</b>{{ date('M j, Y H:ia', strtotime(${$singlepostvar}->updated_at)) }}</p><br/>
-
+                                    <p><b>Created at
+                                            :</b>{{ date('M j, Y H:ia', strtotime(${$singlepostvar}->created_at)) }}</p>
+                                    <br/>
+                                    <p><b>Updated at
+                                            :</b>{{ date('M j, Y H:ia', strtotime(${$singlepostvar}->updated_at)) }}</p>
+                                    <br/>
                                 </div>
-
                                 <div>
                                     <a href="{{ url()->previous() }}" class="btn btn-primary btn-block">Cancel</a>
 
@@ -88,13 +85,8 @@
                         </div>
                         {!! Form::close() !!}
                     </fieldset>
-
-
                 </div>
             </div>
         </div>
     </div>
-
-
-
 @endsection

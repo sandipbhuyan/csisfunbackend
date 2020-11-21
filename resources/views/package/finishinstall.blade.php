@@ -10,7 +10,6 @@
                         <a href="{{url('/')}}" class="alert-link">Go to Website.</a>
                     </div>
                 @endif
-
             </h1>
         </div>
     </div>

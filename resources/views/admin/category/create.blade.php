@@ -10,7 +10,9 @@
                 <div class="panel-heading">
                     <h4 class="title" style="font-weight: bold;"> {{$createvar['title']}}
 
-                        <button type="button" class="btn btn-primary pull-right" onclick="window.location='{{ route($route['index']) }}'">Cancel</button>
+                        <button type="button" class="btn btn-primary pull-right"
+                                onclick="window.location='{{ route($route['index']) }}'">Cancel
+                        </button>
                     </h4>
                     <p class="category">Items marked <sup class="required">*</sup> are required.</p>
                 </div>
@@ -24,12 +26,12 @@
                                 <label class="{{$fv['label_length']}} control-label"
                                        for="NEW_subject">{{$fv['label']}} : <sup class="required">*</sup>
                                 </label>
-                                <div class="{{$fv['field_length']}}">
+                                <div class="{{$fv['field_length']}} col-auto">
 
-                                    <div class="input-group border-input">
-	                                    <span class="input-group-addon">
-	                                        <i class="{{$fv['field_icon']}}"></i>
-	                                    </span>
+                                    <div class="input-group">
+	                                    <div class="input-group-prepend">
+                                            <div class="input-group-text"><i class="{{$fv['field_icon']}}"></i></div>
+	                                    </div>
                                         @if(!strcmp($fv['type'], "text"))
                                             {!! Form::text($fv['name'], $fv['default'], $fv['extras']) !!}
                                         @elseif(!strcmp($fv['type'], "textarea"))
@@ -60,10 +62,7 @@
                         {!! Form::close() !!}
                     </h4>
                 </div>
-
             </div>
         </div>
     </div>
-
-
 @endsection

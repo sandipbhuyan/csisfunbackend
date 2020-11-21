@@ -72,13 +72,13 @@ class BranchController extends Controller
         'name' => array('name'  =>  'name',
             'label_length' => 'col-lg-4',
             'field_length' => 'col-lg-8',
-            'label' => 'Album Name',
+            'label' => 'Branch Name',
             'field_icon' => 'fa fa-pencil',
             'type'  =>  'text',
             'default' => null,
             'extras'=> array('class' => 'form-control border-input',
                 'id' => 'name',
-                'placeholder' => 'Enter album name here',
+                'placeholder' => 'Enter branch name here',
                 'required' => ''
             )
         ),

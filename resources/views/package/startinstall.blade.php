@@ -11,7 +11,6 @@
     <div class="row ">
         <div class="col-lg-8 container text-center">
             @if ($errors->any())
-
                 @foreach ($errors->all() as $error)
                     <div class="alert alert-danger" role="alert">
                         {{ $error }}

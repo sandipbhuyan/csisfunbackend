@@ -6,15 +6,14 @@
         <div class="row">
             @include('partials.sidebar')
             <div class="panel panel-default col-md-9">
-
                 <div class="panel-heading">
                     <h4 class="title" style="font-weight: bold;"> {{$createvar['title']}}
-
-                        <button type="button" class="btn btn-primary pull-right" onclick="window.location='{{ route($route['index']) }}'">Cancel</button>
+                        <button type="button" class="btn btn-primary pull-right"
+                                onclick="window.location='{{ route($route['index']) }}'">Cancel
+                        </button>
                     </h4>
                     <p class="category">Items marked <sup class="required">*</sup> are required.</p>
                 </div>
-
                 <div class="panel-body">
                     <h4>
                         {!! Form::open(array('route' => $route['store'], 'class' => 'form-horizontal', 'data-parsley-validate' => '', 'autocomplete' => 'off', 'files' => true)) !!}
@@ -25,11 +24,10 @@
                                        for="NEW_subject">{{$fv['label']}} : <sup class="required">*</sup>
                                 </label>
                                 <div class="{{$fv['field_length']}}">
-
-                                    <div class="input-group border-input">
-	                                    <span class="input-group-addon">
-	                                        <i class="{{$fv['field_icon']}}"></i>
-	                                    </span>
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <div class="input-group-text"><i class="{{$fv['field_icon']}}"></i></div>
+                                        </div>
                                         @if(!strcmp($fv['type'], "text"))
                                             {!! Form::text($fv['name'], $fv['default'], $fv['extras']) !!}
                                         @elseif(!strcmp($fv['type'], "textarea"))
@@ -43,7 +41,6 @@
                                         @elseif(!strcmp($fv['type'], "file"))
                                             {!! Form::file($fv['name'],$fv['extras']) !!}
                                         @else
-
                                         @endif
                                         @if ($errors->has($fv['name']))
                                             <span class="help-block">
@@ -60,10 +57,7 @@
                         {!! Form::close() !!}
                     </h4>
                 </div>
-
             </div>
         </div>
     </div>
-
-
 @endsection

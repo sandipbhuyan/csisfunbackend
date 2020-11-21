@@ -6,7 +6,7 @@
     <div class="container">
         <div class="row">
             @include('partials.sidebar')
-            <div class="content-box-large col-lg-9">
+            <div class="row col-lg-9">
                 <div class="col-md-8">
 
                     <div class="panel-heading">
