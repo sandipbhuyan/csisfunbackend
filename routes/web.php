@@ -23,10 +23,19 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::group(['middleware' => 'auth', 'prefix' => 'admin'], function(){
 
-    // BranchS
+    // Branchs
     Route::resource('branch', 'BranchController');
     Route::get('branch/publish/{id}', 'BranchController@publish')->name('branch.publish');
     Route::get('branch/unpublish/{id}', 'BranchController@unpublish')->name('branch.unpublish');
+
+    // Type
+    Route::resource('type', 'TypeController');
+    Route::get('type/publish/{id}', 'TypeController@publish')->name('type.publish');
+    Route::get('type/unpublish/{id}', 'TypeController@unpublish')->name('type.unpublish');
+
+    Route::resource('post', 'PostController');
+    Route::get('post/publish/{id}', 'PostController@publish')->name('post.publish');
+    Route::get('post/unpublish/{id}', 'PostController@unpublish')->name('post.unpublish');
 
     // PHOTOS
     Route::resource('category', 'CategoryController');
