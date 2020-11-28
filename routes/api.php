@@ -17,3 +17,9 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::get('/categories/all', "PublicEndpoint@getAllCategory");
+Route::get('/types/all', "PublicEndpoint@getAllType");
+Route::get('/posts/all', "PublicEndpoint@getPosts");
+Route::get('/filter/post', "PublicEndpoint@filterPost");
+Route::get('/post/{id}', "PublicEndpoint@getPost");
