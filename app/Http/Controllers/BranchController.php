@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Categories;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use Illuminate\Validation\Rule;
 use App\Branch;
 use Session, Validator, File, Auth;
 
@@ -274,8 +273,6 @@ class BranchController extends Controller
         $post = $this->modelname::find($id);
 
         $updaterules = $this->update_validation_rules;
-        $updaterules['slug'] = array('alpha_dash', Rule::unique('branch')->ignore($id));
-
 
         $this->validate($request, $updaterules);
 

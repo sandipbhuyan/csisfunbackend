@@ -67,13 +67,13 @@ class TypeController extends Controller
         'name' => array('name'  =>  'name',
             'label_length' => 'col-lg-4',
             'field_length' => 'col-lg-8',
-            'label' => 'Album Name',
+            'label' => 'Type Name',
             'field_icon' => 'fa fa-pencil',
             'type'  =>  'text',
             'default' => null,
             'extras'=> array('class' => 'form-control border-input',
                 'id' => 'name',
-                'placeholder' => 'Enter album name here',
+                'placeholder' => 'Enter type name here',
                 'required' => ''
             )
         ),
@@ -268,8 +268,6 @@ class TypeController extends Controller
         $post = $this->modelname::find($id);
 
         $updaterules = $this->update_validation_rules;
-        $updaterules['slug'] = array('alpha_dash', Rule::unique('albums')->ignore($id));
-
 
         $this->validate($request, $updaterules);
 

@@ -72,7 +72,7 @@ class CategoryController extends Controller
         'name' => array('name'  =>  'name',
             'label_length' => 'col-lg-4',
             'field_length' => 'col-lg-8',
-            'label' => 'Album Name',
+            'label' => 'Category Name',
             'field_icon' => 'fa fa-pencil',
             'type'  =>  'text',
             'default' => null,
