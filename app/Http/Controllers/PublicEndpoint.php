@@ -7,6 +7,8 @@ use App\Post;
 use App\Type;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Parsedown;
+use Storage;
 
 class PublicEndpoint extends Controller
 {
@@ -27,6 +29,8 @@ class PublicEndpoint extends Controller
     }
 
     public function getPost($id) {
-        return Post::find($id);
+        $p = Post::find($id);
+        $p->content = Parsedown::instance()->text(Storage::disk('general_uploads')->get($p->content));
+        return $p;
     }
 }
